@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 const FetchPokemon = () => {
     const [pokemon, setPokemon] = useState([]);
-
     const getPoke = () => {
         fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
         .then(response => {
@@ -20,12 +19,14 @@ const FetchPokemon = () => {
     return (
         <div>
             <h1>Get Pokemon</h1>
+            <div  style={{display:'flex', justifyContent:'center'}}>
                 <ul>
                     {pokemon.map((pokemon, idx) =>
                     <li key={idx}>{pokemon.name}</li>
                     )}
                     
                 </ul>
+            </div>
             <button onClick={getPoke}>Get All Pokemon</button>
         </div>
     )
